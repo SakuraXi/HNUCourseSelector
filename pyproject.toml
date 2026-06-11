@@ -1,0 +1,9 @@
+[project]
+name = "HNUCourseSelector"
+version = "0.0.1"
+description = "o0o0o0o0o0o0o0o0o0o0o0o0o0o0o"
+requires-python = ">=3.13"
+dependencies = [
+    "ddddocr>=1.5.6",
+    "pillow>=12.1.0",
+]
