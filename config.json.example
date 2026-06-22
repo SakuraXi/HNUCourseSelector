@@ -2,5 +2,6 @@
 {
 	"account": "", //学号
 	"password": "", //密码
-	"prePickCoursesLoc": "" //保存的预选结果html路径
+	"prePickCoursesLoc": "", //保存的预选结果html路径，留空为根据已经处理过的课程json文件抢课
+	"startTime": "yyyy-MM-dd hh:mm:ss" //开始抢课时间，留空为立即启动
 }
