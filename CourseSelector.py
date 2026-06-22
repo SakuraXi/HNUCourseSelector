@@ -206,7 +206,7 @@ def batch_send_posts(courses):
                 failed_list.append(course_data)
 
             if index < len(current_queue) - 1:
-                wait_time = random.uniform(0.4, 0.7)
+                wait_time = random.uniform(0.7, 1.1)
                 time.sleep(wait_time)
 
         current_queue = failed_list
@@ -223,6 +223,7 @@ def batch_send_posts(courses):
 
 if __name__ == '__main__':
     courses = init()
+    print("已读取到抢课课表，共",len(courses),"门课程。")
 
     wait_for_start(start_time)
 

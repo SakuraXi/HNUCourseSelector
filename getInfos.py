@@ -65,5 +65,4 @@ def do_parse(mode, file_dir):
     else:
         with open(os.path.join(base_dir,"parsedCourses.json"), 'r', encoding='utf-8') as f:
             data = json.load(f)
-        print(list(data))
         return list(data)
