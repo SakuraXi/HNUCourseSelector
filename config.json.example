@@ -1,0 +1,6 @@
+//填入正确信息后记得删除后缀.example
+{
+	"account": "", //学号
+	"password": "", //密码
+	"prePickCoursesLoc": "" //保存的预选结果html路径
+}
