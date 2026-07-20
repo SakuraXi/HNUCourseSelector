@@ -33,7 +33,6 @@ edge_options.add_experimental_option("detach", True)
 
 browser = None
 
-
 def init():
     global user_password, user_account, courses_loc, start_time
     base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(
@@ -126,6 +125,12 @@ def enter_xsxk():
         try:
             if "xsMain" in browser.current_url:
                 browser.get(main_url + "xsxk/xklc_list")
+            if "xsrkxz" in browser.current_url:
+                link_element = WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#dataList td a")))
+                target_url = link_element.get_attribute("href")
+                print(f"选课轮次链接: {target_url}")
+                browser.get(target_url)
+
             time.sleep(1)
             WebDriverWait(browser, 5).until(
                 EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), '进入选课')]"))
@@ -193,7 +198,7 @@ def batch_send_posts(courses):
     })
     current_queue = courses
     attempt_round = 1
-    max_rounds = 5
+    max_rounds = 10
     while current_queue and attempt_round <= max_rounds:
         print(f"\n--- 第 {attempt_round} 轮选课开始，剩余 {len(current_queue)} 门 ---")
         failed_list = []
@@ -206,14 +211,14 @@ def batch_send_posts(courses):
                 failed_list.append(course_data)
 
             if index < len(current_queue) - 1:
-                wait_time = random.uniform(0.7, 1.1)
+                wait_time = random.uniform(0.4, 0.7)
                 time.sleep(wait_time)
 
         current_queue = failed_list
         if current_queue:
             print(f"\n第 {attempt_round} 轮结束，有 {len(current_queue)} 门课失败。")
             if attempt_round < max_rounds:
-                delay_between_rounds = 5
+                delay_between_rounds = random.uniform(3.0, 4.0)
                 time.sleep(delay_between_rounds)
         else:
             print("\n恭喜！所有预定课程已处理完毕。")
