@@ -7,7 +7,7 @@
 # @Version: 1.0
 
 import threading
-
+from selenium.webdriver.edge.options import Options as EdgeOptions
 import random
 import ddddocr
 from selenium import webdriver
@@ -20,7 +20,7 @@ from PIL import Image
 from io import BytesIO
 import Utils
 
-edge_options = webdriver.EdgeOptions()
+edge_options = EdgeOptions()
 edge_options.page_load_strategy = 'normal'
 
 main_url = "http://jxgl.hainanu.edu.cn/jsxsd/"
