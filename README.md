@@ -76,7 +76,7 @@ python GUI.py
 *   `Utils.py`: 工具类，提供单例模式的请求会话管理（SessionMgr）。
 *   `config.json`: 用户配置文件，存储账号、密码、启动时间等。
 *   `parsedCourses.json`: 解析后的预选课程数据。
-* 
+
 ---
 
 ## ❤️ 感谢使用
