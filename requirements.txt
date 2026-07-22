@@ -1,0 +1,6 @@
+customtkinter
+requests
+selenium
+ddddocr
+Pillow
+beautifulsoup4
