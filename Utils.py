@@ -3,7 +3,7 @@
 # @Author  : xlxlSakura
 # @FileName: Utils.py
 # @Software: PyCharm
-# @Description: 
+# @Description: 抢课助手Utils
 # @Version: 1.0
 
 import requests

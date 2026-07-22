@@ -1,8 +1,18 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2026-06-10
+# @Author  : xlxlSakura
+# @FileName: Utils.py
+# @Software: PyCharm
+# @Description: 抢课助手解析预选课表逻辑
+# @Version: 1.0
+
 from bs4 import BeautifulSoup
 import re
 import json
 import os
 import sys
+
+base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(os.path.abspath(__file__))
 
 def parse_course_html(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -48,21 +58,19 @@ def parse_course_html(html):
 
     return course_list
 
-def do_parse(mode, file_dir):
-    base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(os.path.abspath(__file__))
-    if mode == 0:
-        with open(file_dir, "r", encoding="utf-8") as f:
-            content = f.read()
-        result = parse_course_html(content)
-        print(result)
-        try:
-            with open(os.path.join(base_dir,"parsedCourses.json"), 'w', encoding='utf-8') as f:
-                json.dump(result, f, indent=4, ensure_ascii=False)
-            print("成功！数据已保存")
-        except Exception as e:
-            print(f"保存失败: {e}")
-        return result
-    else:
-        with open(os.path.join(base_dir,"parsedCourses.json"), 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return list(data)
+def read_courses_from_html(file_dir):
+    with open(file_dir, "r", encoding="utf-8") as f:
+        content = f.read()
+    result = parse_course_html(content)
+    try:
+        with open(os.path.join(base_dir,"parsedCourses.json"), 'w', encoding='utf-8') as f:
+            json.dump(result, f, indent=4, ensure_ascii=False)
+        print("成功！数据已保存")
+    except Exception as e:
+        print(f"保存失败: {e}")
+    return result
+
+def read_existed_courses():
+    with open(os.path.join(base_dir,"existedCourses.json"), 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return list(data)
