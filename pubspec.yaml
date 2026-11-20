@@ -1,0 +1,33 @@
+name: hnu_course_selector
+description: "海大抢课助手"
+publish_to: 'none'
+version: 2.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  dio: ^5.7.0
+  cookie_jar: ^4.0.8
+  dio_cookie_manager: ^3.1.1
+  html: ^0.15.5
+  image: ^4.3.0
+  onnxruntime: ^1.4.1
+  path_provider: ^2.1.4
+  file_selector: ^1.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/models/common_old.onnx
+    - assets/models/charset_old.json
