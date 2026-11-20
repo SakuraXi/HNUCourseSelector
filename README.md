@@ -1,6 +1,6 @@
 # 🎓 HNU Course Selector | 海大抢课助手
 
-基于 Selenium 的抢课辅助工具，集成了验证码自动识别、预选课表解析、自动启动抢课等功能。
+使用 Flutter 开发的抢课辅助工具，集成了验证码自动识别、预选课表解析、自动启动抢课等功能。
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=fff)
 [![OCR](https://img.shields.io/badge/OCR-ddddocr-orange)](https://github.com/sml2h3/ddddocr)
